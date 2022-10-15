@@ -1,14 +1,9 @@
-@app.route("/add", methods=["POST"], strict_slashes=False)
-def add_articles():
-    title = request.json['title']
-    body = request.json['body']
+app = create_app()
 
-    article = Articles(
-        title=title,
-        body=body
-        )
+# Define a route to fetch the available articles
 
-    db.session.add(article)
-    db.session.commit()
+@app.route("/articles", methods=["GET"], strict_slashes=False)
 
-    return article_schema.jsonify(article)
+
+if __name__ == "__main__":
+    app.run(debug=True)

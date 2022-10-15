@@ -2,7 +2,7 @@
 # each, finding the average as you go ? this will be some interesting code to write tbh. test with the manual angle finder on the mock bone.
 
 
-import cv2
+import cv2 as cv2 
 import math
 # import matplotlib.pyplot as plt
 import numpy as np
