@@ -13,7 +13,9 @@ import time
 # from PIL import Image
 
 global img
-img = cv2.imread("bone screenshot.jpg")
+# CHANGE THIS TO YOUR PATH!!!! :) or dont i think it works
+img = cv2.imread(
+    "/backend/bonescreenshot.jpg")
 
 
 def find_edge(x, y):
@@ -151,13 +153,13 @@ def angle_calculator(num1, num2):
     angle_rad = math.acos(
         (line1_len**2 + line2_len**2 - line3_len**2)/(2*line2_len*line1_len))
     angle_deg = round(angle_rad * 180 / math.pi, 2)
-    cv2.putText(img, "Angle: " + str(angle_deg) + "d", (10, 50),
-                cv2.FONT_HERSHEY_COMPLEX, .5, (0, 255, 0), 1)
-    img2 = cv2.resize(img, (700, 800))
-    while (1):
-        cv2.imshow("Slope Finder", img2)
-        if cv2.waitKey(0) & 0xFF == 27:
-            break
+    # cv2.putText(img, "Angle: " + str(angle_deg) + "d", (10, 50),
+    #             cv2.FONT_HERSHEY_COMPLEX, .5, (0, 255, 0), 1)
+    # img2 = cv2.resize(img, (700, 800))
+    # while (1):
+    #     cv2.imshow("Slope Finder", img2)
+    #     if cv2.waitKey(0) & 0xFF == 27:
+    #         break
 
     return angle_deg
 
@@ -211,18 +213,19 @@ def run_code():
 
     bottom = edge_finder(150)
     # print(bottom)
-    point_drawer(bottom)
+    # point_drawer(bottom)
     bottom_slope = slope(bottom)
     print(bottom_slope)
 
     top = edge_finder(350)
     # print(top)
-    point_drawer(top)
+    # point_drawer(top)
     top_slope = slope(top)
     # print(top_slope)
 
     angle = angle_calculator(bottom_slope, top_slope)
-    print(angle)
+    return angle
 
 
-run_code()
+# print(run_code())
+# run_code()
